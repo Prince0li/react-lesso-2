@@ -35,14 +35,20 @@ function List() {
         </React.Fragment>
     )
 }
-function Title() {
-    return <h1>Hello TS</h1>
+type TitleProps = {
+    name: string
+}
+const Title = (props: TitleProps) => {
+    console.log(props)
+    return <h1>Hello {props.name}</h1>
 }
 
 const App = () => {
     return (
         <div className="app">
-            <Title />
+            <Title name="App" />
+            <Title name="React" />
+            <Title name="TS" />
             <List />
         </div>
     )
