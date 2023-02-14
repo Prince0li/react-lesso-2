@@ -37,18 +37,28 @@ function List() {
 }
 type TitleProps = {
     name: string
+    text: string
+    year: number
 }
-const Title = (props: TitleProps) => {
-    console.log(props)
-    return <h1>Hello {props.name}</h1>
+const Title = ({ name, text, year }: TitleProps) => {
+    console.log()
+    return (
+        <>
+            <h1>Hello {name}</h1>
+            <p>{text}</p>
+            <div>Year: {year}</div>
+        </>
+    )
 }
 
 const App = () => {
     return (
         <div className="app">
-            <Title name="App" />
-            <Title name="React" />
-            <Title name="TS" />
+            <Title
+                name="App"
+                text="Lorem djsksnd djfidjdns jjdndn"
+                year={2049}
+            />
             <List />
         </div>
     )
