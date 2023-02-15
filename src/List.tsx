@@ -1,3 +1,5 @@
+import './List.css'
+
 type Props = {}
 const List = (props: Props) => {
     let data = false
@@ -11,7 +13,7 @@ const List = (props: Props) => {
             <p
                 style={{
                     color: 'white',
-                    backgroundColor: data ? 'red' : 'purple',
+                    backgroundColor: data ? 'red' : 'darkred',
                     padding: '15px',
                 }}
             >
@@ -20,7 +22,7 @@ const List = (props: Props) => {
                 consequuntur nobis nihil, necessitatibus dolorem aliquam cum vel
                 ipsam voluptas iusto hic quae rerum.
             </p>
-            <p>
+            <p className="content">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Impedit, magni quod veniam illo quibusdam vel iusto quam
                 perferendis voluptas reiciendis temporibus labore incidunt,
