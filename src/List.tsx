@@ -1,9 +1,8 @@
-import classes from './List.module.css'
+import './List.scss'
 
 type Props = {}
-console.log(classes)
-const { content, test, articleDesc } = classes
-const List = (props: Props) => {
+
+export const List = (props: Props) => {
     let data = true
     return (
         <>
@@ -12,7 +11,7 @@ const List = (props: Props) => {
                 <li>list</li>
                 <li>list</li>
             </ul>
-            <p className={`${articleDesc} ${data ? content : test}`}>
+            <p className={`articleDesc ${data ? 'content' : 'test'}`}>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Aperiam, temporibus facere ab magni repudiandae nam enim
                 consequuntur nobis nihil, necessitatibus dolorem aliquam cum vel
