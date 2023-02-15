@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import List from './List'
 
 // // const title = React.createElement('h1', { id: 'title' }, 'Hello react.js')
 // // console.log(title)
@@ -24,23 +25,13 @@ import ReactDOM from 'react-dom/client'
 //         </p>
 //     </div>
 // )
-function List() {
-    return (
-        <React.Fragment>
-            <ul>
-                <li>list</li>
-                <li>list</li>
-                <li>list</li>
-            </ul>
-        </React.Fragment>
-    )
-}
+
 type TitleProps = {
-    name: string
+    name?: string
     text: string
     year: number
 }
-const Title = ({ name, text, year }: TitleProps) => {
+const Title = ({ name = 'Jack', text, year }: TitleProps) => {
     console.log()
     return (
         <>
