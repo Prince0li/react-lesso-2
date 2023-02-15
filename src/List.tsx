@@ -1,8 +1,10 @@
-import './List.css'
+import classes from './List.module.css'
 
 type Props = {}
+console.log(classes)
+const { content, test, articleDesc } = classes
 const List = (props: Props) => {
-    let data = false
+    let data = true
     return (
         <>
             <ul>
@@ -10,13 +12,7 @@ const List = (props: Props) => {
                 <li>list</li>
                 <li>list</li>
             </ul>
-            <p
-                style={{
-                    color: 'white',
-                    backgroundColor: data ? 'red' : 'darkred',
-                    padding: '15px',
-                }}
-            >
+            <p className={`${articleDesc} ${data ? content : test}`}>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Aperiam, temporibus facere ab magni repudiandae nam enim
                 consequuntur nobis nihil, necessitatibus dolorem aliquam cum vel
