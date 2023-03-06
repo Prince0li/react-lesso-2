@@ -51,7 +51,6 @@ class ProductsListItem extends Component<Props, State> {
             }))
         }
     }
-
     render() {
         const { title, description, type, capacity, price, image } = this.props
         return (
