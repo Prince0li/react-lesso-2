@@ -3,16 +3,29 @@ import Header from 'container/Header/Header'
 import Main from 'container/Main/Main'
 import CssBaseline from '@mui/material/CssBaseline'
 import { StyledEngineProvider } from '@mui/material/styles'
+import { useState } from 'react'
 
 type Props = {}
-const app = (props: Props) => {
+
+type CartDataProps = {
+    totalCount: number
+    totalPrice: number
+}
+
+const App = (props: Props) => {
+    const [cartData, setCartData] = useState<CartDataProps>({
+        totalCount: 0,
+        totalPrice: 0,
+    })
+
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
-            <Header />
+            <Header cartData={cartData} />
             <Main />
             <Footer />
         </StyledEngineProvider>
     )
 }
-export default app
+
+export default App

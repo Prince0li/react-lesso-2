@@ -26,6 +26,8 @@ const ProductsListItem = ({
     image,
 }: Props) => {
     const [count, setCount] = useState<number>(1)
+    const [countInCart, setCountInCart] = useState<number>(0)
+    const [costInCart, setCostInCart] = useState<number>(0)
 
     const onIncrement = () => {
         setCount((prevState) => prevState + 1)
@@ -33,7 +35,10 @@ const ProductsListItem = ({
     const onDecrement = () => {
         setCount((prevState) => prevState - 1)
     }
-
+    const addToCart = () => {
+        setCountInCart((prevState) => prevState + count)
+        setCostInCart((prevState) => prevState + count * price)
+    }
     return (
         <Card className="product" variant="outlined">
             <CardContent>
@@ -64,7 +69,9 @@ const ProductsListItem = ({
                 </div>
             </CardContent>
             <CardActions className="btns-wrap">
-                <Button variant="outlined">Add to cart</Button>
+                <Button variant="outlined" onClick={() => addToCart()}>
+                    Add to cart
+                </Button>
             </CardActions>
         </Card>
     )
