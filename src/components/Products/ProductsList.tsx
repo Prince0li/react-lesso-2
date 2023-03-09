@@ -2,31 +2,22 @@ import { Grid, Typography } from '@mui/material'
 import ProductsListItem from './ProductsListItem'
 import productsArray from 'utils/productsArray'
 
-type Props = {}
-
-type Product = {
-    id: number
-    title: string
-    description: string
-    type: string
-    capacity: string
-    price: number
-    image: string
+type Props = {
+    addProductToCart: (count: number, price: number) => void
 }
-const ProductsList = (props: Props) => {
+
+const ProductsList = ({ addProductToCart }: Props) => {
     return (
         <>
-            <Typography variant="h3" component="h2" align="center">
+            <Typography
+                variant="h3"
+                component="h2"
+                align="center"
+                sx={{ marginBottom: '30px' }}
+            >
                 List of Products
             </Typography>
-
-            <Grid
-                container
-                direction="row"
-                justifyContent="center"
-                alignItems="stretch"
-                spacing={4}
-            >
+            <Grid container spacing={4} alignItems="stretch">
                 {productsArray.map(
                     ({
                         id,
@@ -36,15 +27,16 @@ const ProductsList = (props: Props) => {
                         capacity,
                         price,
                         image,
-                    }: Product) => (
+                    }) => (
                         <Grid item xs={12} sm={6} md={4} key={id}>
                             <ProductsListItem
                                 title={title}
                                 description={description}
-                                capacity={capacity}
                                 type={type}
+                                capacity={capacity}
                                 price={price}
                                 image={image}
+                                addProductToCart={addProductToCart}
                             />
                         </Grid>
                     )
