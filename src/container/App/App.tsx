@@ -16,13 +16,28 @@ const App = (props: Props) => {
         1: 5,
         2: 5,
     })
-
-    const addProductToCart = () => {}
+    // const addProductToCart = (id: number, count: number) => {
+    //     setProductsInCart((prevState) => ({
+    //         ...prevState,
+    //         [id]: prevState[id] === undefined ? count : prevState[id] + count,
+    //     }))
+    // }
+    const addProductToCart = (id: number, count: number) => {
+        setProductsInCart((prevState) =>
+            Object.assign({}, prevState, {
+                [id]:
+                    prevState[id] === undefined ? count : prevState[id] + count,
+            })
+        )
+    }
 
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
             <Header productsInCart={productsInCart} />
+            <button onClick={() => addProductToCart(2, 5)}>
+                Add to cart (id:2, count:5)
+            </button>
             <Main addProductToCart={addProductToCart} />
             <Footer />
         </StyledEngineProvider>
