@@ -11,7 +11,7 @@ type Product = {
 const productsArray: Product[] = [
     {
         id: 1,
-        title:"iPhone 12 Pro",
+        title:"iPhone 13 Pro",
         description: 'This is iPhone 12 Pro',
         capacity:"128",
         type:"phone",
@@ -30,7 +30,7 @@ const productsArray: Product[] = [
     },
     {
         id: 3,
-        title:"iPhone 12 Pro",
+        title:"iPhone 14 Pro",
         description: 'This is iPhone 12 Pro',
         capacity:"128",
         type:"phone",
