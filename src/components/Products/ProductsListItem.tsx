@@ -1,23 +1,20 @@
-import {
-    Button,
-    Card,
-    CardActions,
-    CardContent,
-    TextField,
-} from '@mui/material'
+import { Button, Card, CardActions, CardContent } from '@mui/material'
+import Quantity from 'components/Quantity/Quantity'
 import { useState } from 'react'
 import './ProductsListItem.scss'
 
 type Props = {
+    id: number
     title: string
     description: string
     type: string
     capacity: string
     price: number
     image: string
-    addProductToCart: (count: number, price: number) => void
+    addProductToCart: (id: number, count: number) => void
 }
 const ProductsListItem = ({
+    id,
     title,
     description,
     type,
@@ -46,28 +43,16 @@ const ProductsListItem = ({
                 <div className="product-features">Type: {type}</div>
                 <div className="product-features">Capacity: {capacity} Gb</div>
                 <div className="product-price">{price}$</div>
-                <div className="product-quantity">
-                    <Button
-                        variant="outlined"
-                        onClick={() => onDecrement()}
-                        disabled={count <= 1}
-                    >
-                        -
-                    </Button>
-                    <TextField size="small" value={count} />
-                    <Button
-                        variant="outlined"
-                        onClick={() => onIncrement()}
-                        disabled={count >= 10}
-                    >
-                        +
-                    </Button>
-                </div>
+                <Quantity
+                    count={count}
+                    onDecrement={onDecrement}
+                    onIncrement={onIncrement}
+                />
             </CardContent>
             <CardActions className="btns-wrap">
                 <Button
                     variant="outlined"
-                    onClick={() => addProductToCart(count, price)}
+                    onClick={() => addProductToCart(id, count)}
                 >
                     Add to cart
                 </Button>
